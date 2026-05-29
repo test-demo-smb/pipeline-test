@@ -8,9 +8,12 @@ pipeline {
     stages {
 
         stage('Build Parallel') {
-            agent Node-1
+            agent {
+                label 'jenkins_job'
+            }
 
             parallel {
+                
 
                 stage('Build-1') {
                     steps {
