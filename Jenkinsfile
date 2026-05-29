@@ -8,9 +8,9 @@ pipeline {
     stages {
 
         stage('Build Parallel') {
-            // agent {
-            //     label 'Node-1'
-            // }
+            agent {
+                label 'Node-1'
+            }
 
             parallel {
 
@@ -66,9 +66,9 @@ pipeline {
         }
 
         stage('Deployment') {
-            // agent {
-            //     label 'master'
-            // }
+            agent {
+                label 'master'
+            }
 
             parallel {
 
