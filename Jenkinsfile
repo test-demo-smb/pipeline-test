@@ -1,16 +1,23 @@
-pipeline{
-  stage('Build')
-  {
-    sleep(5)
-  }
+pipeline {
+    agent any
 
-  stage('deplay')
-  {
-    sleep(5)
-  }
+    stages {
+        stage('Build') {
+            steps {
+                sleep(time: 5, unit: 'SECONDS')
+            }
+        }
 
-  stage('test')
-  {
-    sleep(5)
-  }
+        stage('Deploy') {
+            steps {
+                sleep(time: 5, unit: 'SECONDS')
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sleep(time: 5, unit: 'SECONDS')
+            }
+        }
+    }
 }
