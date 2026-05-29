@@ -6,16 +6,13 @@ pipeline {
     // }
 
     stages {
-
+        stage('Build-1') {
+        agent {
+            label 'jenkins_job'
+        }
         stage('Build Parallel') {
 
             parallel {
-
-                stage('Build-1') {
-                    agent {
-                        label 'jenkins_job'
-                    }
-
                     steps {
                         sh 'sleep 5'
                         echo 'Build stage-1'
