@@ -34,7 +34,7 @@ pipeline {
 
                 stage('Build-3') {
 
-                    agent { label 'jenkins_job'}
+                    agent { label 'master'}
                     steps {
                         sh 'sleep 5'
                         echo 'Build stage-3'
