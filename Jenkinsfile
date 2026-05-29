@@ -6,7 +6,7 @@ pipeline {
     // }
 
     stages('Build Parallel') {
-        agent Node - 02
+        agent Node-1
         parallel {
             stage('Build-1') {
                 steps {
@@ -33,8 +33,9 @@ pipeline {
             }
         }
 
+        
         stage('Test Parallel') {
-            agent { label 'jenkins_job' }
+            agent Node-2
             parallel {
                 stage('Test Chrome') {
                     steps {
