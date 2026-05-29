@@ -8,7 +8,6 @@ pipeline {
     stages {
 
         stage('Build Parallel') {
-            //agent Node-1
 
             parallel {
 
@@ -38,17 +37,13 @@ pipeline {
             }
         }
 
-
-
         stage('Test Parallel') {
-            
-            
+
+            agent {
+                label 'jenkins_job'
+            }
 
             parallel {
-
-                agent {
-                    label 'jenkins_job'
-                }
 
                 stage('Test Chrome') {
                     steps {
@@ -68,16 +63,14 @@ pipeline {
             }
         }
 
-
-
-
         stage('Deployment') {
-            
 
-            parallel {
-                agent {
+            agent {
                 label 'jenkins_job'
             }
+
+            parallel {
+
                 stage('Deploy Server 1') {
                     steps {
                         sh 'sleep 5'
@@ -95,7 +88,5 @@ pipeline {
                 }
             }
         }
-    
-    
     }
 }
