@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
 
     // agent {
     //     label 'jenkins_job'
