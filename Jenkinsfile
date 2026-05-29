@@ -13,7 +13,7 @@ pipeline {
                 
 
                 stage('Build-1') {
-                    agent { label 'jenkins_job'}
+                    agent { label 'Node-1'}
 
                     steps {
                         sh 'sleep 5'
@@ -24,7 +24,7 @@ pipeline {
 
                 stage('Build-2') {
 
-                    agent { label 'jenkins_job'}
+                    agent { label 'Node-2'}
                     steps {
                         sh 'sleep 5'
                         echo 'Build stage-2'
