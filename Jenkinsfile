@@ -73,9 +73,9 @@ pipeline {
 
         stage('Deployment') {
             parallel {
-                agent {label 'Node-1'}
+                
                 stage('Deploy Server 1') {
-                    
+                    agent {label 'Node-1'}
                     steps {
                         sh 'sleep 5'
                         echo 'Deploy to Server 1'
