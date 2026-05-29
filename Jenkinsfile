@@ -24,7 +24,7 @@ pipeline {
                 }
 
                 stage('Build-2') {
-                    agent {label 'Node-1'}
+                    agent {label 'Node-2'}
                     steps {
                         sh 'sleep 5'
                         echo 'Build stage-2'
@@ -33,7 +33,7 @@ pipeline {
                 }
 
                 stage('Build-3') {
-                    agent {label 'Node-1'}
+                    agent {label 'master'}
                     steps {
                         sh 'sleep 5'
                         echo 'Build stage-3'
@@ -49,7 +49,7 @@ pipeline {
             parallel {
 
                 stage('Test Chrome') {
-                    agent {label 'Node-2'}
+                    agent {label 'Node-1'}
                     steps {
                         sh 'sleep 5'
                         echo 'Test Chrome'
@@ -73,8 +73,9 @@ pipeline {
 
         stage('Deployment') {
             parallel {
-
+                agent {label 'Node-1'}
                 stage('Deploy Server 1') {
+                    
                     steps {
                         sh 'sleep 5'
                         echo 'Deploy to Server 1'
@@ -83,9 +84,18 @@ pipeline {
                 }
 
                 stage('Deploy Server 2') {
+                    agent {label 'Node-2'}
                     steps {
                         sh 'sleep 5'
                         echo 'Deploy to Server 2'
+                        sleep(time: 5, unit: 'SECONDS')
+                    }
+                }
+                stage('Deploy Server 3') {
+                    agent {label 'master'}
+                    steps {
+                        sh 'sleep 5'
+                        echo 'Deploy to Server 3'
                         sleep(time: 5, unit: 'SECONDS')
                     }
                 }
