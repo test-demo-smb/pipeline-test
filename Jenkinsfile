@@ -39,9 +39,7 @@ pipeline {
 
         stage('Test Parallel') {
 
-            agent {
-                label 'jenkins_job'
-            }
+           
 
             parallel {
 
@@ -65,9 +63,7 @@ pipeline {
 
         stage('Deployment') {
 
-            agent {
-                label 'jenkins_job'
-            }
+            
 
             parallel {
 
