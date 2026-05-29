@@ -8,14 +8,14 @@ pipeline {
     stages {
 
         stage('Build Parallel') {
-            agent {
-                label 'jenkins_job'
-            }
 
             parallel {
-                
 
                 stage('Build-1') {
+                    agent {
+                        label 'jenkins_job'
+                    }
+
                     steps {
                         sh 'sleep 5'
                         echo 'Build stage-1'
@@ -24,6 +24,10 @@ pipeline {
                 }
 
                 stage('Build-2') {
+                    agent {
+                        label 'jenkins_job'
+                    }
+
                     steps {
                         sh 'sleep 5'
                         echo 'Build stage-2'
@@ -32,6 +36,10 @@ pipeline {
                 }
 
                 stage('Build-3') {
+                    agent {
+                        label 'jenkins_job'
+                    }
+
                     steps {
                         sh 'sleep 5'
                         echo 'Build stage-3'
@@ -40,6 +48,5 @@ pipeline {
                 }
             }
         }
-
     }
 }
