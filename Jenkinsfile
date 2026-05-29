@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    //agent any
 
     // agent {
     //     label 'jenkins_job'
@@ -8,9 +8,7 @@ pipeline {
     stages {
 
         stage('Build Parallel') {
-            // agent {
-            //     label 'Node-1'
-            // }
+            agent Node-1
 
             parallel {
 
@@ -44,9 +42,9 @@ pipeline {
 
         stage('Test Parallel') {
             
-            // agent {
-            //     label 'Node-2'
-            // }
+            agent {
+                label 'jenkins_job'
+            }
 
             parallel {
 
@@ -72,9 +70,9 @@ pipeline {
 
 
         stage('Deployment') {
-            // agent {
-            //     label 'master'
-            // }
+            agent {
+                label 'jenkins_job'
+            }
 
             parallel {
 
