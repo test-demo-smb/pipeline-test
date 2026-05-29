@@ -5,19 +5,37 @@ pipeline {
     //     label 'jenkins_job'
     // }
 
-    stages {
+    stages('Build Parallel') {
+        agent Node - 02
+        parallel {
+            stage('Build-1') {
+                steps {
+                    sh 'sleep 5'
+                    echo 'Build stage-1'
+                    sleep(time: 5, unit: 'SECONDS')
+                }
+            }
 
-        stage('Build') {
-            steps {
-                sh 'sleep 5'
-                echo 'Build stage'
-                sleep(time: 5, unit: 'SECONDS')
+            stage('Build-2') {
+                steps {
+                    sh 'sleep 5'
+                    echo 'Build stage-2'
+                    sleep(time: 5, unit: 'SECONDS')
+                }
+            }
+
+            stage('Build-3') {
+                steps {
+                    sh 'sleep 5'
+                    echo 'Build stage-3'
+                    sleep(time: 5, unit: 'SECONDS')
+                }
             }
         }
 
         stage('Test Parallel') {
+            agent { label 'jenkins_job' }
             parallel {
-
                 stage('Test Chrome') {
                     steps {
                         sh 'sleep 5'
@@ -37,8 +55,8 @@ pipeline {
         }
 
         stage('Deployment') {
+            //agent master
             parallel {
-
                 stage('Deploy Server 1') {
                     steps {
                         sh 'sleep 5'
