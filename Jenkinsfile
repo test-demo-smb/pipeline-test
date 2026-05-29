@@ -40,10 +40,7 @@ pipeline {
             }
         }
 
-
-
         stage('Test Parallel') {
-            
             agent {
                 label 'Node-2'
             }
@@ -67,9 +64,6 @@ pipeline {
                 }
             }
         }
-
-
-
 
         stage('Deployment') {
             agent {
@@ -95,7 +89,5 @@ pipeline {
                 }
             }
         }
-    
-    
     }
 }
