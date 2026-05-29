@@ -42,11 +42,13 @@ pipeline {
 
         stage('Test Parallel') {
             
-            agent {
-                label 'jenkins_job'
-            }
+            
 
             parallel {
+
+                agent {
+                    label 'jenkins_job'
+                }
 
                 stage('Test Chrome') {
                     steps {
@@ -70,12 +72,12 @@ pipeline {
 
 
         stage('Deployment') {
-            agent {
-                label 'jenkins_job'
-            }
+            
 
             parallel {
-
+                agent {
+                label 'jenkins_job'
+            }
                 stage('Deploy Server 1') {
                     steps {
                         sh 'sleep 5'
