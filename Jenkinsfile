@@ -32,7 +32,7 @@ pipeline {
                         
                         echo "$NAME"
                         
-
+                        echo "deplay to ${params.ENV}"
                         sh '''
                         
                         sleep 5
@@ -56,7 +56,8 @@ pipeline {
                         echo $DEPLOY_ENV
 
 
-
+                        echo "deplay to $ENV"
+                        //echo "code is from $ENV"
 
                         '''
                        
