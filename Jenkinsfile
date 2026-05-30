@@ -7,8 +7,8 @@ pipeline {
 
     environment{
         NAME='Bharath'
-        NAME1='$name'
-        DEPLOY_ENV='$defaultValue'
+        NAME1=$name
+        DEPLOY_ENV=$defaultValue
 
     }
 
@@ -37,7 +37,7 @@ pipeline {
                         
                         sleep 5
                         echo $NAME
-                      //  exit 0
+                        exit 0
 
                         echo $NAME1
                         echo $NAME1
