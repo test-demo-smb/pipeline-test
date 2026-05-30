@@ -7,8 +7,8 @@ pipeline {
 
     environment{
         NAME='Bharath'
-        NAME1=$name
-        DEPLOY_ENV=$defaultValue
+        NAME1="$name"
+        DEPLOY_ENV="$defaultValue"
 
     }
 
