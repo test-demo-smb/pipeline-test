@@ -61,15 +61,23 @@ pipeline {
 
 
         stage('Test Parallel') {
+            environment{
+                NAME='Bhavani'
+
+            }
 
             parallel {
 
                 stage('Test Chrome') {
                     agent {label 'Node-2'}
                     steps {
-                        sh 'sleep 5'
-                        echo 'Test Chrome'
-                        sleep(time: 5, unit: 'SECONDS')
+
+                        echo "$NAME"
+                        sh '''
+                            sleep 5
+                            echo $NAME
+
+                        '''
                     }
                 }
 
