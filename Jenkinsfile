@@ -1,10 +1,17 @@
 pipeline {
     agent any
+    parameters {
+         string defaultValue: 'TEST', description: 'environment to deplay the Apllication', name: 'ENV', trim: true
+               
+    }
 
     environment{
         NAME='Bharath'
+        NAME1='$name'
+        DEPLOY_ENV='$defaultValue'
 
     }
+
 
     // agent {
     //     label 'jenkins_job'
@@ -31,6 +38,25 @@ pipeline {
                         sleep 5
                         echo $NAME
                         exit 0
+
+                        echo $NAME1
+                        echo $NAME1
+                        echo $NAME1
+                        echo $NAME1
+                        echo $NAME1
+                        echo $NAME1
+                        echo $NAME1
+
+                        echo $DEPLOY_ENV
+                        echo $DEPLOY_ENV
+                        echo $DEPLOY_ENV
+                        echo $DEPLOY_ENV
+                        echo $DEPLOY_ENV
+                        echo $DEPLOY_ENV
+                        echo $DEPLOY_ENV
+
+
+
 
                         '''
                        
