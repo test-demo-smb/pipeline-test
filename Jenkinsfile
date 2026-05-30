@@ -22,16 +22,18 @@ pipeline {
                     agent {label 'master'}
 
                     steps {
-
+                        
                         echo "$NAME"
+                        
 
                         sh '''
+                        
                         sleep 5
                         echo $NAME
-                        
-                        ''' 
-                        
-                        'sleep 5'
+                        exit 0
+
+                        '''
+                       
                         echo 'Build stage-1'
                         sleep(time: 5, unit: 'SECONDS')
                     }
